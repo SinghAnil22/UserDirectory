@@ -1,0 +1,18 @@
+{
+  // Maps signed-in users (by Google email) to a role: "Admin" or "Guest".
+  //   Admin – everything, including deleting users.
+  //   Guest – list, view, add and edit users, but not delete.
+  // Emails are matched case-insensitively and must be verified by Google.
+  // This file is reloaded automatically when it changes; no restart needed.
+  "RoleMappings": {
+    // Role for signed-in users not listed below. Set to null to deny them access entirely (403).
+    "DefaultRole": "Guest",
+    "Users": [
+      {
+        "Email": "ermantushahi@gmail.com",
+        "Role": "Admin"
+      },
+      { "Email": "guest@example.com", "Role": "Guest" }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+# Requires GOOGLE_CLIENT_ID – put it in a .env file next to this one (see .env.example).
+services:
+  api:
+    build: ./backend
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__Default: "Data Source=/data/app.db"
+      # Google ID tokens are issued for (aud =) the web app's OAuth Client ID.
+      Auth__Authority: https://accounts.google.com
+      Auth__Audience: ${GOOGLE_CLIENT_ID:?Set GOOGLE_CLIENT_ID in .env}
+      Seed__Enabled: "true"
+      Swagger__Enabled: "true"
+    volumes:
+      - api-data:/data
+      # Email → role mapping (Admin / Guest). Edit the file, then `docker compose restart api`.
+      - ./backend/src/UserDirectory.Api/roles.json:/app/roles.json:ro
+    ports:
+      - "5000:8080"
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ""
+        VITE_GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:?Set GOOGLE_CLIENT_ID in .env}
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  api-data:

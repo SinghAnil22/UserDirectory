@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/backend/" />
+  <Folder Name="/backend/src/">
+    <Project Path="backend/src/UserDirectory.Api/UserDirectory.Api.csproj" />
+  </Folder>
+  <Folder Name="/backend/tests/">
+    <Project Path="backend/tests/UserDirectory.Api.Tests/UserDirectory.Api.Tests.csproj" />
+  </Folder>
+  <Folder Name="/frontend/">
+    <Project Path="frontend/frontend.esproj">
+      <Build Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+    <File Path=".env.example" />
+    <File Path="README.md" />
+  </Folder>
+</Solution>

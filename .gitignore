@@ -1,0 +1,23 @@
+# .NET
+bin/
+obj/
+.vs/
+*.user
+TestResults/
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+backend/src/UserDirectory.Api/App_Data/
+
+# Local config
+.env
+.env.local
+
+# Node
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+*.log
